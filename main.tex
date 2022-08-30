@@ -1,0 +1,85 @@
+\documentclass[10pt]{book}
+
+\usepackage[a5paper,margin=2cm,innermargin=1.5cm]{geometry}
+\usepackage{fontspec}
+\usepackage{xunicode}
+
+\usepackage{needspace}
+\usepackage{marginnote}
+\renewcommand*{\marginfont}{\sffamily\footnotesize}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{imakeidx}
+\usepackage{hyperref}
+\makeindex[intoc]
+
+\newenvironment{conf-abstract}[4][]{
+  \needspace{10\baselineskip}
+  \begin{center}
+    { \renewcommand\textsuperscript[1]{}
+      \phantomsection\addcontentsline{toc}{section}
+      {\texorpdfstring{#2 (\emph{#3})}{#2 (#3)}}
+    }
+    {{\large\bfseries #2}\marginnote{#1}\par}
+    \medskip
+    {#3\par}
+    \smallskip
+    {\small #4\par}
+  \end{center}
+}{%
+  \bigskip
+  \hrule
+  \bigskip
+}
+
+\usepackage{etoolbox}
+\newcommand{\indexauthors}[1]{%
+  \forcsvlist{\index}{#1}
+}
+
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{-1}
+\pagestyle{plain}
+
+% \usepackage{fancyhdr}
+
+% \pagestyle{fancy}
+% \fancyhf{}
+
+
+\usepackage{lipsum}
+
+
+\usepackage{CJK}
+\usepackage[overlap, CJK]{ruby}
+
+\begin{document}
+
+%\input{abstracts/ecs-cover.pdf}
+\fontspec{Abyssinica SIL}
+%\fontspec{Gentium Plus}
+
+\frontmatter
+
+\mainmatter
+
+\clearpage
+\pagenumbering{arabic}
+
+
+\fontspec{Abyssinica SIL}
+
+\begin{CJK*}{JIS}{song}
+
+ሰ\ruby{ላ}{᎖᎓}ም እብ\ruby{ል}{ለኪ} \ ለን\ruby{ዋ}{᎖}የ ውስጥ ምሕረ\ruby{ት}{᎖᎓}\ruby{ክሙ}{ጋሢ}፤ \\
+ትሩፋነ \ruby{ገ}{ገብ}ድል \ruby{ኩ}{᎖}ኑ\ruby{ኒ}{ሎ} \ ሥ\ruby{ላ}{᎖᎖}\ruby{ሴ}{᎓᎑} \ አምጣነ ትሩ\ruby{ፋ}{᎐}ን አንት\ruby{ሙ}{ር}፤ \\
+ሶበ ሖርኩሰ ከመ \ruby{እ}{᎖}ትለቃሕ ገድሎ\ruby{ሙ}{{ር}}፤ \\
+ጊዮር\ruby{ጊ}{᎔}ስ ኢወ\ruby{ሀ}{᎖}በኒ መጠነ \ruby{ነ}{᎖}ጥበ ጠል እም\ruby{ደ}{᎖᎓}\ruby{ሙ}{ጋሢ}፤\\
+ወተክለ ሃይማ\ruby{ኖ}{᎑}ት ከልዓኒ ስ\ruby{ባ}{᎖ረሰ}ረ እምአጽ\ruby{ሙ}{ያሱ}። 
+
+\end{CJK*}
+
+\printindex
+
+\end{document}
